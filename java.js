@@ -38,7 +38,20 @@ const tickets = [
     id: 1008, title: "Unable to Update Profile Picture",
     description: "Customer tries to upload a new profile picture but gets 'Upload failed' error.",
     customer: "Olivia Martinez", priority: "LOW PRIORITY", status: "Open", createdAt: "1/22/2024"
-  }
+  },
+   {
+    id: 1009,
+    title: "Subscription Auto-Renewal",
+    description: "Customer wants to enable auto-renewal for their subscription but the toggle is disabled.",
+    customer: "Liam Thomas", priority: "MEDIUM PRIORITY", status: "In Progress", createdAt: "1/17/2024"
+  },
+  
+  {
+    id: 1010,
+    title: "Missing Order Confirmation Email",
+    description: "Customer placed an order but didn't receive a confirmation email even though payment succeeded.",
+    customer: "Isabella Garcia", priority: "MEDIUM PRIORITY", status: "Open", createdAt: "1/24/2024"
+  },
 ];
 
 let tasks = [];
@@ -90,13 +103,14 @@ function renderTaskStatus() {
   ul.innerHTML = "";
   tasks.forEach(ticket => {
     ul.innerHTML += `
-      <li>
-        <span>${ticket.title}</span>
+      <li style="background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.04); border-radius:12px; margin-bottom:18px; padding:24px 18px; display:flex;flex-direction:column;">
+        <span style="font-size:1.15rem; font-weight:600; color:#183153; margin-bottom:14px;">${ticket.title}</span>
         <button class="complete-btn" onclick="completeTask(${ticket.id})">Complete</button>
       </li>
     `;
   });
 }
+
 
 function renderResolvedList() {
   const ul = document.getElementById("resolvedList");
