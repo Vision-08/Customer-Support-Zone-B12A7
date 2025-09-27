@@ -119,6 +119,7 @@ body {
   position: relative;
 }
 
+
 .banner-title {
   font-size: 1.2rem;
 }
@@ -128,6 +129,7 @@ body {
   margin-top: 8px;
 }
 
+
 /* Main content layout */
 .main-content {
   display: flex;
@@ -135,6 +137,7 @@ body {
   gap: 48px;
   margin: 0 32px;
 }
+
 
 /* Ticket grid */
 .tickets-section {
@@ -151,6 +154,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
 }
+
 
 /* Ticket cards */
 .ticket-card {
@@ -214,6 +218,7 @@ body {
   font-weight: 600;
 }
 
+
 /* Sidebar */
 .sidebar {
   flex: 1.2;
@@ -263,6 +268,7 @@ body {
   background: #388e3c;
 }
 
+
 /* Footer */
 .footer {
   background: #18181a;
@@ -287,6 +293,7 @@ body {
   gap: 22px;
   justify-content: space-between;
 }
+
 
 .footer-section h3 {
   font-size: 1.13rem;
@@ -321,10 +328,12 @@ body {
     margin: 0 12px;
   }
 
+
   /* Ticket grid goes single-column */
   .ticket-grid {
     grid-template-columns: 1fr;
   }
+
 
   /* Sidebar gets full width and margin top */
   .sidebar {
@@ -332,6 +341,7 @@ body {
     min-width: auto;
     margin-top: 30px;
   }
+
 
   /* Navbar menu items stack and get smaller */
   .navbar-right {
@@ -345,6 +355,7 @@ body {
     padding: 6px 12px;
     font-size: 0.9rem;
   }
+
 
   /* Banner stacks vertically and centers items */
   .banner {
@@ -363,6 +374,7 @@ body {
     margin-bottom: 18px;
   }
 
+
   /* Ticket card padding and font size adjustments */
   .ticket-card {
     padding: 14px 12px;
@@ -377,12 +389,14 @@ body {
     font-size: 0.75rem;
   }
 
+
   /* Task Status items */
   #taskStatusList li,
   #resolvedList li {
     padding: 16px 12px;
     font-size: 0.95rem;
   }
+
 
   /* Footer stack */
   .footer-content {
@@ -402,6 +416,7 @@ body {
   }
 }
 
+
 @media (max-width: 700px) {
   .navbar {
     flex-direction: row;
@@ -412,6 +427,7 @@ body {
     min-width: 0;
     margin-top: 2px;
   }
+
 
   /* Hide inline menu, show hamburger */
   .navbar-right {
@@ -443,6 +459,7 @@ body {
     display: flex;
   }
 
+
   .menu-toggle {
     display: flex;
     margin-top: 2px;
@@ -458,8 +475,10 @@ body {
   }
 }
 
+
 /* Optional: close mobile menu when link is clicked */
 .navbar-right a,
 .new-ticket-btn {
   cursor: pointer;
 }
+
