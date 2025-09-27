@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>CS — Ticket System</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-   <!-- Google Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
 
-
-
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="navbar-left">CS — Ticket System</div>
-    <div class="navbar-right">
+    <div class="navbar-left">
+      <span class="cs-brand">
+        <span class="cs-top">CS</span>
+        <span class="cs-bottom">Ticket System</span>
+      </span>
+    </div>
+    <div class="navbar-right" id="navbarMenu">
       <a href="#">Home</a>
       <a href="#">FAQ</a>
       <a href="#">Changelog</a>
       <a href="#">Blog</a>
       <a href="#">Download</a>
       <a href="#">Contact</a>
-      <button id="new-ticket-btn">+ New Ticket</button>
+      <button id="new-ticket-btn" class="new-ticket-btn">+ New Ticket</button>
     </div>
+    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
   <!-- Banner Section -->
@@ -68,43 +76,62 @@
         <h3>CS — Ticket System</h3>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
       </div>
-      <div class="footer-section">
-        <h4>Company</h4>
-        <ul>
-          <li>About Us</li>
-          <li>Our Mission</li>
-          <li>Contact Saled</li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Services</h4>
-        <ul>
-          <li>Products & Services</li>
-          <li>Customer Stories</li>
-          <li>Download Apps</li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Information</h4>
-        <ul>
-          <li>Privacy Policy</li>
-          <li>Terms & Conditions</li>
-          <li>Join Us</li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Social Links</h4>
-        <ul>
-          <li>@CS — Ticket System</li>
-          <li>support@cst.com</li>
-        </ul>
+      <div class="footer-content-row">
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul>
+            <li>About Us</li>
+            <li>Our Mission</li>
+            <li>Contact Saled</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li>Products & Services</li>
+            <li>Customer Stories</li>
+            <li>Download Apps</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Information</h4>
+          <ul>
+            <li>Privacy Policy</li>
+            <li>Terms & Conditions</li>
+            <li>Join Us</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Social Links</h4>
+          <ul>
+            <li>@CS — Ticket System</li>
+            <li>support@cst.com</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
       © 2025 CS — Ticket System. All rights reserved.
     </div>
   </footer>
-  
+
   <script src="java.js"></script>
+  <script>
+    // Mobile hamburger menu toggle
+    document.addEventListener('DOMContentLoaded', function () {
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const navMenu = document.getElementById('navbarMenu');
+      mobileBtn.addEventListener('click', function () {
+        navMenu.classList.toggle('active');
+      });
+
+      // Close menu on nav link click
+      document.querySelectorAll('.navbar-right a, .new-ticket-btn').forEach(el => {
+        el.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+        });
+      });
+    });
+  </script>
 </body>
 </html>

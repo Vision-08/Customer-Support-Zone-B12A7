@@ -12,11 +12,32 @@ body {
   background: #fff;
   padding: 16px 32px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  position: relative;
 }
+
 .navbar-left {
-  font-weight: bold;
-  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 130px;
 }
+
+.cs-brand {
+  display: flex;
+  flex-direction: column;
+}
+.cs-top {
+  font-weight: bold;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+.cs-bottom {
+  font-weight: 500;
+  font-size: 1.08rem;
+  margin-top: 2px;
+  line-height: 1;
+}
+
 .navbar-right {
   display: flex;
   align-items: center;
@@ -27,7 +48,7 @@ body {
   text-decoration: none;
   font-size: 1rem;
 }
-#new-ticket-btn {
+#new-ticket-btn, .new-ticket-btn {
   background: #7c3aed;
   color: #fff;
   border: none;
@@ -35,6 +56,30 @@ body {
   padding: 8px 18px;
   font-size: 1rem;
   cursor: pointer;
+  margin-left: 7px;
+}
+
+/* Hamburger 3-bar menu button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  padding: 0;
+}
+.menu-toggle span {
+  display: block;
+  width: 27px;
+  height: 3.5px;
+  background: #6f41ec;
+  margin: 4px 0;
+  border-radius: 6px;
+  transition: all 0.2s;
 }
 
 /* Banner styles */
@@ -56,7 +101,7 @@ body {
 .banner-inprogress {
   background: linear-gradient(90deg, #6d28d9 40%, #4f46e5 100%);
   background-image:
-    url('./assets/vector1.png'), /* sits on top */
+    url('./assets/vector1.png'),
     linear-gradient(90deg, #6d28d9 40%, #4f46e5 100%);
   background-repeat: no-repeat;
   background-size: cover, cover;
@@ -66,7 +111,7 @@ body {
 .banner-resolved {
   background: linear-gradient(90deg, #16a34a 40%, #059669 100%);
   background-image:
-    url('./assets/vector2.jpg'), /* sits on top */
+    url('./assets/vector2.jpg'),
     linear-gradient(90deg, #16a34a 40%, #059669 100%);
   background-repeat: no-repeat;
   background-size: cover, cover;
@@ -106,7 +151,6 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
 }
-
 
 /* Ticket cards */
 .ticket-card {
@@ -219,21 +263,31 @@ body {
   background: #388e3c;
 }
 
-
 /* Footer */
 .footer {
   background: #18181a;
   color: #fff;
-  padding: 40px 32px 20px 32px;
+  width: 100vw;
+  margin-left: calc(-1 * ((100vw - 100%) / 2));
+  box-sizing: border-box;
+  padding: 40px 0 20px 0;
   margin-top: 48px;
 }
 .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.footer-section {
+  margin-bottom: 22px;
+}
+.footer-content-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 34px;
+  gap: 22px;
   justify-content: space-between;
-  margin-bottom: 24px;
 }
+
 .footer-section h3 {
   font-size: 1.13rem;
   font-weight: bold;
@@ -259,17 +313,153 @@ body {
   color: #d1d5db;
 }
 
-/* Responsive */
+/* Responsive Styles */
 @media (max-width: 900px) {
+  /* Stack main content vertically */
   .main-content {
     flex-direction: column;
-    margin: 0 8px;
+    margin: 0 12px;
   }
-  .footer-content {
+
+  /* Ticket grid goes single-column */
+  .ticket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Sidebar gets full width and margin top */
+  .sidebar {
+    flex: 1 1 100%;
+    min-width: auto;
+    margin-top: 30px;
+  }
+
+  /* Navbar menu items stack and get smaller */
+  .navbar-right {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .navbar-right a {
+    font-size: 0.9rem;
+  }
+  #new-ticket-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  /* Banner stacks vertically and centers items */
+  .banner {
     flex-direction: column;
-    gap: 22px;
+    gap: 12px;
+    margin: 20px 0;
   }
-  .tickets-section, .sidebar {
+  .banner-stat {
+    width: 97vw;
+    margin-left: 0;
+    margin-right: auto;
+    border-radius: 16px;
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 18px;
+  }
+
+  /* Ticket card padding and font size adjustments */
+  .ticket-card {
+    padding: 14px 12px;
+  }
+  .ticket-title {
+    font-size: 0.95rem;
+  }
+  .ticket-desc {
+    font-size: 0.85rem;
+  }
+  .ticket-details {
+    font-size: 0.75rem;
+  }
+
+  /* Task Status items */
+  #taskStatusList li,
+  #resolvedList li {
+    padding: 16px 12px;
+    font-size: 0.95rem;
+  }
+
+  /* Footer stack */
+  .footer-content {
+    display: block;
+    padding: 0 8px;
+  }
+  .footer-content-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 500px) {
+    .footer-content-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 13px 9px 13px 15px;
+  }
+  .navbar-left {
     min-width: 0;
+    margin-top: 2px;
   }
+
+  /* Hide inline menu, show hamburger */
+  .navbar-right {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    box-shadow: 0 4px 16px rgba(25,25,50,0.08);
+    border-radius: 0 0 10px 10px;
+    padding: 25px 8px 16px 8px;
+    z-index: 10;
+    gap: 19px;
+    animation: fadeInDown 0.32s;
+  }
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .navbar-right.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+    margin-top: 2px;
+  }
+  .cs-brand {
+    align-items: flex-start;
+  }
+  .cs-top {
+    font-size: 1.35rem;
+  }
+  .cs-bottom {
+    font-size: 1rem;
+  }
+}
+
+/* Optional: close mobile menu when link is clicked */
+.navbar-right a,
+.new-ticket-btn {
+  cursor: pointer;
 }
