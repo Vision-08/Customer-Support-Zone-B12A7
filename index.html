@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CS — Ticket System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">CS — Ticket System</div>
+    <div class="navbar-right">
+      <a href="#">Home</a>
+      <a href="#">FAQ</a>
+      <a href="#">Changelog</a>
+      <a href="#">Blog</a>
+      <a href="#">Download</a>
+      <a href="#">Contact</a>
+      <button id="new-ticket-btn">+ New Ticket</button>
+    </div>
+  </nav>
+
+  <!-- Banner Section -->
+  <section class="banner">
+    <div class="banner-stat in-progress">
+      <div class="banner-title">In-Progress</div>
+      <div id="inProgressCount" class="banner-value">0</div>
+    </div>
+    <div class="banner-stat resolved">
+      <div class="banner-title">Resolved</div>
+      <div id="resolvedCount" class="banner-value">0</div>
+    </div>
+  </section>
+
+  <!-- Main Section (Tickets + Status Sidebar) -->
+  <main class="main-content">
+    <!-- Ticket List -->
+    <section class="tickets-section">
+      <h2>Customer Tickets</h2>
+      <div id="ticketGrid" class="ticket-grid"></div>
+    </section>
+    <!-- Task Status/Resolved Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <h2>Task Status</h2>
+        <ul id="taskStatusList"></ul>
+      </div>
+      <div>
+        <h2>Resolved Task</h2>
+        <ul id="resolvedList"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>CS — Ticket System</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li>About Us</li>
+          <li>Our Mission</li>
+          <li>Contact Saled</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Services</h4>
+        <ul>
+          <li>Products & Services</li>
+          <li>Customer Stories</li>
+          <li>Download Apps</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Information</h4>
+        <ul>
+          <li>Privacy Policy</li>
+          <li>Terms & Conditions</li>
+          <li>Join Us</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Social Links</h4>
+        <ul>
+          <li>@CS — Ticket System</li>
+          <li>support@cst.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 CS — Ticket System. All rights reserved.
+    </div>
+  </footer>
+  
+  <script src="app.js"></script>
+</body>
+</html>
